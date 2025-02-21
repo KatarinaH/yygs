@@ -1,6 +1,26 @@
 .menu {
   background-color: #8ED8BF;
-  height: 100%;
   width: 100%;
-  background-image: url('/public/bg-meny-yygs.png');
+  min-height: 100vh;
+  background-image: url('/bg-meny-yygs.png');
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
+
+.menu-container {
+  color: #F4F3F1F0;
+  background: #605858;
+  padding: 32px 0;
+  width: 358px;
+  margin-bottom: 50px;
+}
+
+.menu-container h1 {
+  padding: 0 16px;
+}
+
+.menu-container h1, .menu-container h2, .menu-container p, .menu-container li {
+  text-shadow: 1px 1px 0px #0000004D; 
+}
+

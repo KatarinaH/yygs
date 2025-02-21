@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "Fira Sans";
+  font-weight: 400;
+  src: url("./assets/fonts/FiraSans-Regular.woff2") format("woff2");
+  src: url("./assets/fonts/FiraSans-Regular.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fira Sans";
+  font-weight: 700;
+  src: url("./assets/fonts/FiraSans-Bold.woff2") format("woff2");
+  src: url("./assets/fonts/FiraSans-Bold.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fira Sans";
+  font-weight: 500;
+  src: url("./assets/fonts/FiraSans-Medium.woff2") format("woff2");
+  src: url("./assets/fonts/FiraSans-Medium.woff") format("woff");
+  font-display: swap;
+}
+
+body {
+  font-family: "Fira Sans", sans-serif;
+  color: #353131;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 38.4px;
+  font-weight: 700;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 22px;
+  line-height: 26.4px;
+  font-weight: 700;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}

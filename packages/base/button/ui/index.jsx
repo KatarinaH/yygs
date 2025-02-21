@@ -1,14 +1,14 @@
 import './index.css';
 
-function Button({ type, onClick, text }) {
+function Button({ type, onClick, text, color }) {
   return (
     <button
-      className={`button button__${type}`}
+      className={`button button__${type} button__${color}`}
       onClick={() => {
         onClick();
       }}
     >
-      {text}
+      <span>{text}</span>
     </button>
   );
 }

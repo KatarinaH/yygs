@@ -1,0 +1,22 @@
+.dotted-line {
+  border-bottom: 2px dotted;
+  margin-bottom: 5px;
+  flex-grow: 1;
+  
+}
+
+.dotted-line__short {
+  margin-left: 30px;
+}
+
+.dotted-line__long {
+  margin-left: 10px;
+}
+
+.dotted-line + .white {
+  border-color: #F4F3F1F0;
+}
+
+.dotted-line + .black {
+  border-color: #353131;
+}

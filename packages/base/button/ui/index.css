@@ -1,0 +1,30 @@
+.button {
+  border-radius: 4px;
+  font-family: "Fira Sans", sans-serif;
+  cursor: pointer;
+  border: none;
+}
+
+.button__regular {
+  width:  100%;
+  max-width: 20rem;
+}
+
+.button__small {
+  width: fit-content;
+  padding: 8px 12px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16.4px;
+  margin-right: 7px;
+  margin-bottom: 7px;
+}
+
+.button__soft-brown {
+  background-color: #F1F0EC3D;
+  color: #F4F3F1F0;
+}
+
+.button__soft-brown span {
+  text-shadow: 1px 1px 2px #00000040;
+}

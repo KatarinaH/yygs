@@ -1,18 +1,16 @@
 import './index.css';
 
 import { Header } from '@yygs/header';
-import { useGetMenuQuery } from '@yygs/api';
+
+import { MenuItems } from '@yygs/menu-items';
 
 function Menu() {
-  const { data, isError, isLoading } = useGetMenuQuery();
-
-  console.log(data, isError, isLoading);
-
   return (
     <main className='menu'>
       <Header />
-      <div>
+      <div className='menu-container'>
         <h1>Meny</h1>
+        <MenuItems />
       </div>
     </main>
   );
