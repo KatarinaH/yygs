@@ -1,6 +1,8 @@
 import './index.css';
 import YygsLogo from '/yygs-logo.svg';
 
+import { CartIndicator } from '@yygs/cart-indicator';
+
 function Header() {
   return (
     <header className='header'>
@@ -9,7 +11,7 @@ function Header() {
         src={YygsLogo}
         alt='Yygs logo'
       />
-      
+      <CartIndicator />
     </header>
   );
 }

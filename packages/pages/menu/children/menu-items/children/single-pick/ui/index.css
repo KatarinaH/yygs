@@ -29,3 +29,14 @@ ul.ingredients li {
   line-height: 16.8px;
   font-weight: 500;
 }
+
+.menu-item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.menu-item-content button {
+  margin-left: 15px;
+}

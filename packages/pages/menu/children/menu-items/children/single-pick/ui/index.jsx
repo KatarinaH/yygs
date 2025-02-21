@@ -1,6 +1,7 @@
 import './index.css';
 
 import { DottedLine } from '@yygs/dotted-line';
+import { Button } from '@yygs/button';
 
 function SinglePick({item}) {
   return (
@@ -10,10 +11,19 @@ function SinglePick({item}) {
         <DottedLine length='short' color='white' />
         <p>{item.price} SEK</p>
       </div>
-      <ul className='ingredients'>
-        <li>{item.ingredients.join(', ')}</li>
-      </ul>
-      <button>Lägg till</button>
+      <div className='menu-item-content'>
+        <ul className='ingredients'>
+          <li>{item.ingredients.join(', ')}</li>
+        </ul>
+        <Button
+          type='small'
+          color='soft-brown'
+          onClick={() => {
+            handleClick();
+          }}
+          text='Köp'
+        ></Button>
+      </div>
     </li>
   );
 }
