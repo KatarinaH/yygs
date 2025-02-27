@@ -1,4 +1,5 @@
 import "./index.css";
+import PropTypes from 'prop-types';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, selectCartItems } from '@yygs/cartreducer';
@@ -39,5 +40,15 @@ function MultiPicker({ items, title}) {
     </li>
   );
 }
+MultiPicker.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export { MultiPicker };

@@ -40,6 +40,7 @@ function ReceiptProductsContainer() {
       });
     }
   });
+  
   return (
     <div className='receipt__container--products'>
       <img className='receipt__logo' src={redLogo} alt='red logo' />

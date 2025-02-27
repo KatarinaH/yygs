@@ -10,6 +10,7 @@ import {
 } from '@yygs/cartreducer';
 import { MenuItemTop } from '@yygs/menu-item-top';
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 function CartItem({ id, quantity }) {
   const { data, error, isLoading } = useGetSingleMenuItemQuery(id);
@@ -76,5 +77,10 @@ function CartItem({ id, quantity }) {
     </li>
   );
 }
+
+CartItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  quantity: PropTypes.number.isRequired,
+};
 
 export { CartItem };
