@@ -2,7 +2,7 @@ import "./index.css";
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, selectCartItems } from '@yygs/cartreducer';
-import { DottedLine } from '@yygs/dotted-line';
+import { MenuItemTop } from '@yygs/menu-item-top';
 import { Button } from '@yygs/button';
 
 function MultiPicker({ items, title}) {
@@ -21,17 +21,13 @@ function MultiPicker({ items, title}) {
 
   return (
     <li className='multi-picker menu-item'>
-      <div className='menu-item-top'>
-        <h2>{title}</h2>
-        <DottedLine length='short' color='white' />
-        {price && <p>{price} SEK</p>}
-      </div>
+      <MenuItemTop name={title} price={price} dottedline={{ length: 'short', color: 'white' }} />
       <ul className='multi-picker-buttons'>
         {items.map((item) => (
           <Button
             key={item.id}
-            type="small"
-            color="soft-brown"
+            type='small'
+            color='soft-brown'
             onClick={() => {
               handleAddToCart(item.id);
             }}

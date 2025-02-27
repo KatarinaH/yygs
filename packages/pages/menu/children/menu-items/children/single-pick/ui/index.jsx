@@ -2,8 +2,8 @@ import './index.css';
 
 import { useDispatch } from 'react-redux';
 import { addToCart } from '@yygs/cartreducer';
-import { DottedLine } from '@yygs/dotted-line';
 import { Button } from '@yygs/button';
+import { MenuItemTop } from '@yygs/menu-item-top';
 
 function SinglePick({item}) {
   const dispatch = useDispatch();
@@ -14,11 +14,11 @@ function SinglePick({item}) {
 
   return (
     <li className='single-pick menu-item'>
-      <div className='menu-item-top'>
-        <h2>{item.name}</h2>
-        <DottedLine length='short' color='white' />
-        <p>{item.price} SEK</p>
-      </div>
+      <MenuItemTop
+        name={item.name}
+        price={item.price}
+        dottedline={{ length: 'short', color: 'white' }}
+      />
       <div className='menu-item-content'>
         <ul className='ingredients'>
           <li>{item.ingredients.join(', ')}</li>

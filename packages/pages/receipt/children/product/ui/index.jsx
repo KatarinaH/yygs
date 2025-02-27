@@ -1,18 +1,17 @@
 import './index.css';
-import { DottedLine } from '@yygs/dotted-line';
+import { MenuItemTop } from '@yygs/menu-item-top';
 
 function Product ({item}) {
   const totalPricePerItem = item.price * item.quantity;
   const additionalInfo = item.type === 'dip' ? 'Dip' : '';
   return (
     <li className='product'>
-      <div className='menu-item-top'>
-        <h2>
-          {item.name} {additionalInfo}
-        </h2>
-        <DottedLine length='long' color='black' />
-        <p>{totalPricePerItem} SEK</p>
-      </div>
+      <MenuItemTop
+        name={item.name}
+        additionalInfo={additionalInfo}
+        price={totalPricePerItem}
+        dottedline={{ length: 'long', color: 'black' }}
+      />
       <p className='quantity'>{item.quantity} Stycken</p>
     </li>
   );

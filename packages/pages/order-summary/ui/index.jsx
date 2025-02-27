@@ -1,5 +1,6 @@
 import './index.css';
 
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { usePlaceOrderMutation } from '@yygs/api';
 import { useSelector, useDispatch } from 'react-redux';
@@ -38,7 +39,10 @@ function OrderSummary() {
       <Header darkLogo cartIconOnly />
       {cartItems?.length === 0 ? (
         <div className='order-summary__container'>
-          <p>No items here!</p>
+          <p>Det finns inga produkter i din varukorg..</p>
+          <Link to='/'>
+            <Button type='regular' color='dark' text='Tillbaka till menyn' />
+          </Link>
         </div>
       ) : (
         <div className='order-summary__container'>

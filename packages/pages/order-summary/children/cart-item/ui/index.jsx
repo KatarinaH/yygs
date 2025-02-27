@@ -8,7 +8,7 @@ import {
   updateTotalCartValue,
   deleteProduct,
 } from '@yygs/cartreducer';
-import { DottedLine } from '@yygs/dotted-line';
+import { MenuItemTop } from '@yygs/menu-item-top';
 import { useState, useEffect } from 'react';
 
 function CartItem({ id, quantity }) {
@@ -46,12 +46,16 @@ function CartItem({ id, quantity }) {
 
   return (
     <li className='cart-item'>
-      <div className='menu-item-top'>
-        <h2>{data.item.name}</h2>
-        <DottedLine length='long' color='black' />
-        <p>{totalPricePerItem} SEK</p>
-      </div>
-      <button className='remove' title="Ta bort produkt" onClick={handleDeleteProduct}>
+      <MenuItemTop
+        name={data.item.name}
+        price={totalPricePerItem}
+        dottedline={{ length: 'long', color: 'black' }}
+      />
+      <button
+        className='remove'
+        title='Ta bort produkt'
+        onClick={handleDeleteProduct}
+      >
         <img className='button-icon' src='/delete.png' alt='delete' />
       </button>
       <div className='cart-item-bottom'>
