@@ -4,6 +4,7 @@ import { Menu } from '@yygs/menu';
 import { OrderSummary } from '@yygs/order-summary';
 import { Eta } from '@yygs/eta';
 import { Receipt } from '@yygs/receipt';
+import { NotFound } from '@yygs/not-found';
 
 
 const router = createBrowserRouter([
@@ -11,7 +12,7 @@ const router = createBrowserRouter([
   { path: '/order-summary', element: <OrderSummary /> },
   { path: '/eta', element: <Eta /> },
   { path: '/receipt', element: <Receipt /> },
-  { path: '*', element: <h1>This is not the page you are looking for.</h1> },
+  { path: '*', element: <NotFound /> },
 ]);
 
 export { router };

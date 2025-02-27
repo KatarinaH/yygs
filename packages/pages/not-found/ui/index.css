@@ -1,0 +1,37 @@
+.not-found {
+  background-color: #8ED8BF;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('/bg-meny-yygs.png');
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.not-found-container {
+  color: #F4F3F1F0;
+  background: #605858;
+  padding: 32px;
+  width: 450px;
+  max-width: 90%;
+  margin-bottom: 50px;
+  margin-top: 25vh;
+}
+
+.not-found-container h1 {
+  padding: 0 16px;
+  margin: 0;
+  text-shadow: 1px 1px 0px #0000004D;
+}
+
+.not-found-container a {
+  color: #8ED8BF;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px #0000004D;
+}
+
+.not-found-container a:hover {
+  text-decoration: underline;
+  color: #75a796;
+}
+
