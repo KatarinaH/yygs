@@ -1,13 +1,22 @@
 import "./index.css";
+
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, selectCartItems } from '@yygs/cartreducer';
 import { DottedLine } from '@yygs/dotted-line';
 import { Button } from '@yygs/button';
 
 function MultiPicker({ items, title}) {
   const allPricesSame = items.every(item => item.price === items[0].price);
   const price = allPricesSame ? items[0].price : null;
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
 
-  const handleClick = () => {
-    console.log('clicked');
+  const handleAddToCart = (id) => {
+    dispatch(addToCart({ id, itemPrice: price }));
+  };
+
+  const isInCart = (id) => {
+    return cartItems.some((item) => item.id === id);
   }
 
   return (
@@ -24,9 +33,10 @@ function MultiPicker({ items, title}) {
             type="small"
             color="soft-brown"
             onClick={() => {
-              handleClick();
+              handleAddToCart(item.id);
             }}
             text={item.name}
+            inCart={isInCart(item.id) ? 'in-cart' : ''}
           ></Button>
         ))}
       </ul>

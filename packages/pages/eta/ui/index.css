@@ -1,0 +1,41 @@
+.eta {
+  background: #605858;
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #F4F3F1F0;
+  text-align: center;
+}
+
+.eta__container {
+  width: 358px;
+  margin-bottom: 50px;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.eta__box-top {
+  max-width: 100%;
+  width: 390px;
+}
+
+.eta__eta-time {
+  font-size: 26px;
+  line-height: 31.2px;
+  font-weight: 500;
+}
+
+.eta__order-id {
+  font-size: 15px;
+  line-height: 18px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.eta__button-container {
+  margin-top: auto;
+}

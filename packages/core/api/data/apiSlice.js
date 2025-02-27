@@ -1,6 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const apiKey = 'yum-fNyMwyY4gQ8NxMpB';
+const apiKey = import.meta.env.REACT_APP_API_KEY;
+const tenantId = import.meta.env.REACT_APP_TENANT_ID;
+
 
 export const apiSlice = createApi({
   reducerPath: 'api',
@@ -8,6 +10,7 @@ export const apiSlice = createApi({
     baseUrl: 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com',
     prepareHeaders: (headers) => {
       headers.set('x-zocom', apiKey);
+      headers.set('accept', 'application/json');
       return headers;
     },
   }),
@@ -15,15 +18,21 @@ export const apiSlice = createApi({
     getMenu: builder.query({
       query: () => '/menu',
     }),
+    getSingleMenuItem: builder.query({
+      query: (id) => `/menu/${id}`,
+    }),
+    placeOrder: builder.mutation({
+      query: (order) => ({
+        url: `/${tenantId}/orders`,
+        method: 'POST',
+        body: order,
+      }),
+    }),
   }),
 });
 
 export const {
   useGetMenuQuery,
+  useGetSingleMenuItemQuery,
+  usePlaceOrderMutation,
 } = apiSlice;
-
-
-// {
-//   "id": "1asr",
-//   "name": "katarina"
-// }

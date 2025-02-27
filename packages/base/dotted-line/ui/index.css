@@ -13,10 +13,10 @@
   margin-left: 10px;
 }
 
-.dotted-line + .white {
+.dotted-line.white {
   border-color: #F4F3F1F0;
 }
 
-.dotted-line + .black {
+.dotted-line.black {
   border-color: #353131;
 }

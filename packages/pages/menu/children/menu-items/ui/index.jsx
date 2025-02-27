@@ -13,7 +13,6 @@ function MenuItems() {
     return <p>Fel vid laddning av meny</p>;
   }
 
-
  const wontonItems = data?.items.filter((item) => item.type === 'wonton');
  const dipItems = data?.items.filter((item) => item.type === 'dip');
  const drinkItems = data?.items.filter((item) => item.type === 'drink');

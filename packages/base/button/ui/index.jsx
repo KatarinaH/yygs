@@ -1,9 +1,9 @@
 import './index.css';
 
-function Button({ type, onClick, text, color }) {
+function Button({ type, onClick, text, color, inCart }) {
   return (
     <button
-      className={`button button__${type} button__${color}`}
+      className={`button button__${type} button__${color} ${inCart}`}
       onClick={() => {
         onClick();
       }}

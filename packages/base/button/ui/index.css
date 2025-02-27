@@ -3,11 +3,16 @@
   font-family: "Fira Sans", sans-serif;
   cursor: pointer;
   border: none;
+  color: #F4F3F1F0;         
 }
 
 .button__regular {
   width:  100%;
-  max-width: 20rem;
+  text-transform: uppercase;
+  font-size: 24px;
+  line-height: 28.8px;
+  padding: 24px 16px;
+  font-weight: 700;
 }
 
 .button__small {
@@ -18,13 +23,34 @@
   line-height: 16.4px;
   margin-right: 7px;
   margin-bottom: 7px;
+  transition: transform 0.1s ease-in-out;
+}
+
+.button.margin-bottom {
+  margin-bottom: 20px;
+}
+
+.button__small:active {
+  transform: scale(0.95);
+}
+
+.button.in-cart {
+  background: #353131;
+}
+
+.button__dark {
+  background-color: #353131;
+}
+
+.button__transparent {
+  background-color: transparent;
+  border: 1px solid #F4F3F1F0; 
 }
 
 .button__soft-brown {
   background-color: #F1F0EC3D;
-  color: #F4F3F1F0;
 }
 
-.button__soft-brown span {
+.button span {
   text-shadow: 1px 1px 2px #00000040;
 }

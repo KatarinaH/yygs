@@ -1,33 +1,77 @@
+
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = [];
+const initialState = {
+  cart: [],
+  totalCartValue: 0,
+  orderItems: [],
+  placedOrderData: {},
+};
+
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
     addToCart(state, action) {
-      console.log('State är: ', state);
-      console.log('Action är: ', action);
-      state.push(action.payload);
-    },
-    increaseQuantity(state, action) {
-      const product = state.find((product) => product.id === action.payload.id);
-      product.quantity += 1;
+      const existingItem = state.cart.find((item) => item.id === action.payload.id);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        state.cart.push({ ...action.payload, quantity: 1 });
+      }
+      state.orderItems = state.cart.flatMap((item) =>
+        Array(item.quantity).fill(item.id)
+      );
     },
     decreaseQuantity(state, action) {
-      const product = state.find((product) => product.id === action.payload.id);
-      if (product.quantity === 1) {
-        return state.filter((product) => product.id !== action.payload.id);
+      const existingItem = state.cart.find((item) => item.id === action.payload.id);
+      if (existingItem) {
+        if (existingItem.quantity > 1) {
+          existingItem.quantity -= 1;
+        } else {
+          state.cart = state.cart.filter((item) => item.id !== action.payload.id);
+        }
       }
-      product.quantity -= 1;
+      state.orderItems = state.cart.flatMap((item) =>
+        Array(item.quantity).fill(item.id)
+      );
     },
     deleteProduct(state, action) {
-      return state.filter((product) => product.id !== action.payload.id);
-    }
+      state.cart = state.cart.filter((item) => item.id !== action.payload.id);
+    },
+    updateTotalCartValue(state) {
+      state.totalCartValue = state.cart.reduce((acc, item) => {
+        return acc + item.itemPrice * item.quantity;
+      }, 0);
+      state.orderItems = state.cart.flatMap((item) =>
+        Array(item.quantity).fill(item.id)
+      );
+    },
+    placedOrderData(state, action) {
+      state.placedOrderData = action.payload.result;
+      state.cart = [];
+      state.totalCartValue = 0;
+      state.orderItems = [];
+    },
   },
 });
 
-export const { addToCart, increaseQuantity, decreaseQuantity } = cartSlice.actions;
 
-export default cartSlice.reducer;
+export const {
+  addToCart,
+  decreaseQuantity,
+  updateTotalCartValue,
+  deleteProduct,
+  placedOrderData,
+} = cartSlice.actions;
+
+export const selectCartItems = (state) => state.cart.cart;
+
+export const selectTotalCartValue = (state) => state.cart.totalCartValue;
+
+export const selectOrderItems = (state) => state.cart.orderItems;
+
+export const selectPlacedOrderData = (state) => state.cart.placedOrderData;
+
+export { cartSlice };
