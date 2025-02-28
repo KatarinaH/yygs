@@ -24,12 +24,13 @@ function CartItem({ id, quantity }) {
     }
   }, [quantity, data, dispatch, id,totalPricePerItem]);
 
+  // Lägg till en produkt med detta id i varukorgen
   const handleAddToCart = () => {
-    dispatch(addToCart({ id: data?.item.id, price: totalPricePerItem }));
+    dispatch(addToCart({ id: data?.item.id }));
   };
 
   const handleDecreaseCart = () => {
-    //if quantity is 1, remove the product from the cart and run updateTotalCartValue
+    //Minska värdet med en på detta id. Om det bara finns en produkt i varukorgen med detta id tas produkten bort helt och varukorgens totala värde uppdateras
     if (quantity === 1) {
       dispatch(deleteProduct({ id: data?.item.id }));
       dispatch(updateTotalCartValue());
@@ -37,6 +38,7 @@ function CartItem({ id, quantity }) {
     dispatch(decreaseQuantity({ id: data?.item.id }));
   };
 
+  // Ta bort produkt med detta id från varukorgen och uppdatera varukorgens totala värde
   const handleDeleteProduct = () => {
     dispatch(deleteProduct({ id: data?.item.id }));
     dispatch(updateTotalCartValue());

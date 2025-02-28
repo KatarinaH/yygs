@@ -39,6 +39,7 @@ function Eta() {
    return () => clearInterval(timer);
  }, [placedOrderData]);
 
+ // En bool som kollar om tiden är 0 eller mindre
  const isReady = remainingMinutes <= 0;
 
  const handleClick = (url, resetOrder) => {

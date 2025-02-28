@@ -12,10 +12,12 @@ function MultiPicker({ items, title}) {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
 
+  // Lägg till vald produkt i varukorgen, skicka med id och enhetspris
   const handleAddToCart = (id) => {
     dispatch(addToCart({ id, itemPrice: price }));
   };
 
+  // Kolla om vald produkt redan finns i varukorgen för att sätta styling på knappen
   const isInCart = (id) => {
     return cartItems.some((item) => item.id === id);
   }

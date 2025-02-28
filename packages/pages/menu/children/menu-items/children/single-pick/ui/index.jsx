@@ -9,6 +9,7 @@ import { MenuItemTop } from '@yygs/menu-item-top';
 function SinglePick({item}) {
   const dispatch = useDispatch();
 
+  // Lägg till vald produkt i varukorgen, skicka med id och enhetspris
   const handleAddToCart = () => {
     dispatch(addToCart({ id: item.id, itemPrice: item.price }));
   }
